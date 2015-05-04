@@ -1,0 +1,86 @@
+<% if (user && to) { %>
+	<link rel="stylesheet" type="text/css" href="/css/talk.css">
+	<div id="chat" class="col-xs-12 col-sm-12 col-lg-12">
+		<div id="messages" class="col-xs-12 col-sm-12 col-lg-12">
+			
+		</div>
+		<input id="write" type="text" class="col-xs-10 col-sm-10 col-lg-10">
+		<input id="send" type="button" value="envoyer" class="btn btn-default btn-sm"></button>
+		<div id="msgerr" class="alert alert-error alert-block alert-warning col-xs-12 col-sm-12 col-lg-12">
+			<p><strong>Erreur !</strong><span>votre message doit au moins comporter deux caractères.</span></p>
+		</div>
+	</div>
+	<script>
+		socket.emit('connected', "<%= user.username %>");
+		var from = "<%= to %>";
+		var $msgerr = $('#msgerr');
+		var $messages = $('#messages');
+		var $send = $('#send');
+		var $write = $('#write');
+		var msg;
+
+		$msgerr.hide();
+		$write.keydown(function(event){
+			console.log(event.keyCode);
+			if (event.altKey && event.keyCode == 78)
+			{
+				$write.val($write.val() + "<br />");
+			}
+			if (event.keyCode == 13)
+			{
+				$send.click();
+			}
+		});
+		$send.click(function(){
+			msg = $write.val();
+			if (msg.length > 2)
+			{
+				if (!protect)
+					var protect;
+				protect = new RegExp("<","g");
+				var sent = new Date();
+				if (!$whole && !hour && !minutes)
+				{
+					var $whole;
+					var hour;
+					var minutes;
+				}
+				hour = sent.getHours();
+				minutes = sent.getMinutes();
+				if (minutes < 10)
+					minutes = "0" + minutes;
+				var $whole = "<div class=\"alert alert-success alert-block col-xs-12 col-sm-12 col-lg-1 mgs\">\n\t<p class=\"sent\"><h3 class=\"h3\"> <%= user.username %> </h3> : " + msg.replace(protect, "&lt;") + "<i class=\"flux\"> envoyé à " + hour + ":" + minutes + "</i></p>\n\t</div>";
+				$messages.prepend($whole);
+				socket.emit('private', from, msg, "<%= user.username %>");
+				$write.val(" ");
+			}
+			else
+			{
+				$msgerr.show(400).delay(2000).hide(400);
+				return (false);
+			}
+		});
+		socket.on('msg', function(msg, sender) {
+			if (sender == from)
+			{
+				sent = new Date();
+
+				if (!protect)
+					var protect;
+				protect = new RegExp("<","g");
+				if (!$whole && !hour && !minutes)
+				{
+					var $whole;
+					var hour;
+					var minutes;
+				}
+				hour = sent.getHours();
+				minutes = sent.getMinutes();
+				if (minutes < 10)
+					minutes = "0" + minutes;
+				$whole = "<div class=\"alert alert-info alert-block col-xs-12 col-sm-12 col-lg-1 mgs\">\n\t<p class=\"sent\"><h3 class=\"h3\">" + sender  + "</h3> : " + msg.replace(protect, "&lt;") + "<i class=\"flux\"> reçu à " + hour + ":" + minutes + "</i></p>\n\t</div>";
+				$messages.prepend($whole);
+			}
+		});
+	</script>
+<% } %>

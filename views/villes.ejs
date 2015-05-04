@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>villes</title>
+	</head>
+	<body>
+		<script src="/js/jquery-2.1.3.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			var socket = io.connect('127.0.0.1:8080');
+			$(document).ready(function() {
+				$.getJSON('/json/city.json', function(data){
+					//console.log(data);
+					$.each(data, function(entryIndex, entry){
+						console.log(entry.fields['nom_comm']);
+						console.log(entry.fields['postal_code']);
+						socket.emit('city', entry.fields['nom_comm'], entry.fields['postal_code']);
+					});
+				});
+				return (false);
+				console.log('fini !');
+			});
+		</script>
+	</body>
+</html>

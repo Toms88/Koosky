@@ -1,0 +1,65 @@
+<div id="folder" class="col-xs-12 col-sm-12 col-lg-12">
+	<h1><%- title %></h1>
+
+	<% if (school) { %>
+		<% if (!Type) { %>
+			<link rel="stylesheet" type="text/css" href="/css/no_type_sch.css" media="screen">
+			<div id="first" class="col-xs-12 col-sm-12 col-lg-12">
+				<div id="upic" class="col-xs-12 col-sm-4 col-lg-4">
+					<div id="vide2" class="col-xs-12 col-sm-12 col-lg-12">
+						<p><strong>Address :</strong> <%- school.Address %></p>
+					</div>
+					<div class="col-sm-pull-2 col-lg-pull-2">
+						<img id="Icon" class="col-xs-12 col-sm-12 col-lg-12" src=<%- school.Icon %>>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-lg-12">
+					</div>
+				</div>
+				<div id="next" class="col-xs-12 col-sm-8 col-lg-8">
+					<p>Vous n'êtes pas seuls, si vous avez besoin de conseils, de retour d'expériences sur une école, demandez à ces anciens élèves</p>
+				</div>
+			</div>
+			<div id="snd" class="col-xs-12 col-sm-12 col-lg-12">
+				<p>Si vous êtes un ancien élève vous pouvez aider les jeunes semblables à ceux que vous étiez à mieux choisir leur voie</p>
+				<input id="Register" type="button" class="btn btn-primary" value="register">
+				<div id="étudiants" class="col-xs-12 col-sm-5 col-lg-6">
+				</div>
+			</div>
+		<% } else { %>
+			<div id="first" class="col-xs-12 col-sm-12 col-lg-12">
+				<div id="upic" class="col-xs-12 col-sm-4 col-lg-4">
+					<div id="vide2" class="col-xs-12 col-sm-12 col-lg-12">
+						<p><strong>Address :</strong> <%- school.Address %></p>
+					</div>
+					<div class="col-sm-pull-2 col-lg-pull-2">
+						<img id="Icon" class="col-xs-12 col-sm-12 col-lg-12" src=<%- school.Icon %>>
+					</div>
+					<% if (helpers) { %>
+						<h4> Ils peuvent vous aider :</h4>
+						<div class="col-xs-12 col-sm-12 col-lg-12">
+							<% for (var i = 0; i < helpers.length; i++) { %>
+								<% if (i == 0) { %> 
+									<div class="col-xs-4 col-sm-4 col-lg-4">
+										<img class="col-xs-12 col-sm-12 col-lg-12" src="/img/profile/pp.png">
+										<p><%= helpers[i].username %></p>
+										<input class="talk btn btn-defalut btn-sucess btn-sm col-xs-12 col-sm-12 col-lg-12" type="button" value="Parler avec <%= helpers[i].username %>" onclick="document.location.href='/talk/<%= helpers[i].username %>';">
+									</div>
+								<% } else { %>
+									<div class="col-xs-push-2 col-sm-push-1 col-lg-push-1 col-xs-4 col-sm-4 col-lg-4">
+										<img class="col-xs-12 col-sm-12 col-lg-12" src="/img/profile/pp.png">
+										<p><%= helpers[i].username %></p>
+										<input class="talk btn btn-default btn-sucess  btn-sm col-xs-12 col-sm-12 col-lg-12" type="button" value="Parler avec <%= helpers[i].username %>" onclick="document.location.href='/talk/<%= helpers[i].username %>';">
+									</div>
+								<% } %>
+							<% } %>
+						</div>
+					<% } %>
+				</div>
+			</div>
+		<% } %>
+	<% } else { %>
+			<div id="error" class="col-xs-12 col-sm-12 col-lg-12">
+				<p>erreur !</p>
+			</div>
+	<% } %>
+</div>

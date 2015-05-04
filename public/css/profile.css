@@ -1,0 +1,20 @@
+#profile
+{
+	padding-left: 15px;
+}
+#pp
+{
+	margin-right: 1em;
+}
+
+#profile h1, #profile h2, #profile h3, #profile img
+{
+	text-align: left;
+}
+
+@media (min-width : 768px){
+	#profile h1, #profile h2, #profile h3, #profile img
+	{
+		display: inline;
+	}
+}

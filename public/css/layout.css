@@ -1,0 +1,386 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+/*li
+{
+  padding-top: 10px;
+}*/
+/*
+ * Base structure
+ */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url('/img/home/home.png');
+  background-repeat: no-repeat;
+  background-color: #333;
+  overflow: hidden;
+}
+body {
+  color: #000;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+p, h1, h2
+{
+  text-align: center;
+}
+
+#name
+{
+  font-size: 24px;
+  margin-top: 6px;
+}
+
+#but
+{
+  left : 2%;
+}
+
+#school, #find
+{
+  height : 25px;
+}
+
+#whnav, .active
+{
+  background: rgba(0,0,0,0);
+  padding-left: 0px;
+  padding-right: 0px;
+  border: none;
+  border-radius: 5px;
+}
+
+.center
+{
+  padding-top: 30%;
+}
+
+@media (min-width: 320px) and (max-width: 517px){
+  #navbar
+  {
+    left: 4%;
+  }
+  .center
+  {
+    padding-top : 60%;
+  }
+}
+@media (min-width: 517px) and (max-width: 575px){
+  #navbar
+  {
+    left: 2.7%;
+  }
+}
+
+@media (min-width: 575px) and (max-width: 576px){
+  #navbar
+  {
+    left: 2.6%;
+  }
+}
+/*
+@media (min-width: 597px){
+  #navbar
+  {
+    left: 2.5%;
+  }
+}
+
+
+@media (min-width: 620px){
+  #navbar
+  {
+    left: 2.4%;
+  }
+}
+
+@media (min-width: 647px){
+  #navbar
+  {
+    left: 2.3%;
+  }
+}
+
+@media (min-width: 675px){
+  #navbar
+  {
+    left: 2.2%;
+  }
+}
+*/
+@media (width: 320px) and (height: 480px){
+  html, body
+  {
+    background-image: url('/img/home/iphone4_portrait.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 60%;
+  }
+}
+
+@media (width: 320px) and (min-height: 530px){
+  html, body
+  {
+    background-image: url('/img/home/iphone5_portrait.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 80%;
+  }
+}
+
+@media (width: 360px){
+  html, body
+  {
+    background-image: url('/img/home/mobile.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 75%;
+  }
+}
+
+@media (width: 375px){
+  html, body
+  {
+    background-image: url('/img/home/iphone6_portrait.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 75%;
+  }
+}
+
+@media (width: 414px){
+  html, body
+  {
+    background-image: url('/img/home/iphone6_plus_portrait.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 90%;
+  }
+}
+
+@media (width: 480px) and (height: 320px){
+  html, body
+  {
+    background-image: url('/img/home/iphone4_landscape.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 25%;
+  }
+}
+
+@media (width: 480px) and (height: 854px){
+  html, body
+  {
+    background-image: url('/img/home/Sony_portrait.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 70%;
+  }
+}
+
+@media (width: 568px) and (height: 320px){
+  html, body
+  {
+    background-image: url('/img/home/iphone5_landscape.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 20%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px){
+  #navbar
+  {
+    left: 0%;
+  }
+}
+
+@media (width: 640px){
+  html, body
+  {
+    background-image: url('/img/home/mobile_landscape.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 25%;
+  }
+}
+
+@media (width: 667px){
+  html, body
+  {
+    background-image: url('/img/home/iphone6_landscape.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 20%;
+  }
+}
+
+@media (width: 736px){
+  html, body
+  {
+    background-image: url('/img/home/iphone6_plus_landscape.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 25%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px){
+  html, body
+  {
+    background-image: url('/img/home/home.png');
+    background-repeat: no-repeat;
+  }
+  li,h1, h2
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 30%;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1024){
+  html, body
+  {
+    background-image: url('/img/home/sub_landcape.png');
+    background-repeat: no-repeat;
+  }
+  li,h1
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 30%;
+  }
+}
+
+@media (width: 1024px) and (height: 768px){
+  html, body
+  {
+    background-image: url('/img/home/1024home.png');
+    background-repeat: no-repeat;
+  }
+  h3
+  {
+    text-align: none;
+  }
+  li, h1
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 30%;
+  }
+}
+
+
+@media (min-width: 1068px){
+  html, body
+  {
+    background-image: url('/img/home/home.png');
+    background-repeat: no-repeat;
+  }
+  h3
+  {
+    text-align: none;
+  }
+  li, h1
+  {
+    text-align: center;
+  }
+  .center
+  {
+    padding-top: 20%;
+  }
+}

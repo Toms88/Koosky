@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.css" media="screen">
+		<script src="/js/jquery-2.1.3.min.js"></script>
+		<script src="/js/bootstrap/bootstrap.js" ></script>
+	</head>
+	<body>
+		<% if (!mail) {%>
+			<h3>Sorry it's seems that you don't have to be here or an error may have occured...</h3>
+		<% } else {%>
+			<h3>A link was sent to the following email address: <=% mail %>, check your inbox for activate your account, if there's no mail coming from us, check your spam box, also contact the support !</h3>
+			<p>if you follow this link, you will go to....<a href="/">The Hmepage !</a></p>
+		<% } %>
+	</body>
+</html>

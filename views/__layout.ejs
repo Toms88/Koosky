@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' content="width=device-width, initial-scale=1.0" charset="utf-8">
+		<title><%- title %></title>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/css/jquery-ui/jquery-ui.min.css" media="screen">
+	</head>
+	<body>
+		<header class="row">
+			<div class="container col-xs-12 col-sm-12 col-lg-12 row">
+				<nav class="navbar navbar-inverse col-xs-12 col-sm-12 col-lg-12">
+					<div class="container-fluid">
+						<ul class="nav navbar-nav">
+							<li><a href="/">Homepage</a></li>
+						<% if (!user) { %>
+							<li><a href="/login"> Log In </a></li>
+							<li><a href="/register"> Register </a></li>
+						<% } else { %>
+							<li><a href="">Hi <%= user.username %></a></li>
+							<li><a href="/logout"> Logout </a></li>
+						<% } %>
+						<% if (user) {%>
+							<% if (user.Type == "admin") {%>
+								<li><a href="/addschool"> addschool </a></li>
+							<% } %>
+							<li>
+								<form id="schform" class="col-xs-12 col-sm-12 col-lg-12 navbar-right" action="/search" method="POST">
+									<input id="school" name="school" class="search col-xs-8 col-sm-8 col-lg-8" type="search" placeholder="Search a school">
+									<input id="find" class="btn btn-primary btn-sm col-xs-4 col-sm-4 col-lg-4" type="button" value="chercher">
+								</form>
+								<div id="schverif" class="col-xs-12 col-sm-12 col-lg-12 alert alert-error alert-block alert-warning">
+									<span><strong>Erreur !</strong> l'école entrée n'est pas présente dans notre base de données.</span>
+								</div>
+								<div id="typeverif" class="col-xs-12 col-sm-12 col-lg-12 alert alert-error alert-block alert-warning">
+									<span><strong>Erreur !</strong> vous devez entrer au moins 2 caractères.</span>
+								</div>
+							</li>
+						<% } %>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<h1><%- title %></h1>
+		<script src="/js/jquery-2.1.3.min.js"></script>
+		<script src="/js/jquery-ui.min.js"></script>
+		<script src="/js/bootstrap/bootstrap.js" ></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<!--<script src="/js/min/layout.min.js"></script>-->
+		<script src="/js/layout.js"></script>
+		<%- content %>
+	</body>
+</html>

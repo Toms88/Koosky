@@ -1,0 +1,17 @@
+<div id="results" class="col-xs-12 col-sm-12 col-lg-12">
+<% if (schools) { %>
+	<% for (var i = 0; i < schools.length; i++) { %>
+		<a href="/school/<%= schools[i]._id %>">
+			<div class="col-xs-12 col-sm-4 col-lg-3">
+				<img class="col-xs-12 col-sm-12 col-lg-12" src="<%= schools[i].Icon %>">
+				<p><%= schools[i].Name %></p>
+				<p><%= schools[i].Address %></p>
+			</div>
+		</a>
+		<% if (i == 0) { %>
+			<div class="hidden-xs col-sm-1 col-lg-1">
+			</div>
+		<% } %>
+	<% } %>
+<% } %>
+</div>

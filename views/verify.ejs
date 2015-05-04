@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Verifying !</title>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.css" media="screen">
+	</head>
+	<body>
+		<script src="/js/jquery-2.1.3.min.js"></script>
+		<script src="/js/bootstrap/bootstrap.js" ></script>
+		<% if (data.verify == 1) {%>
+			<h4>Your email address (<%= data.mail %>) was verified, you can now connect with your account !</h4>
+		<% } if (data.verify == 0) {%>
+				<h4>an error occured, your email was not verified, please retry to register</h4>
+		<% } if (data.verify == -1) { %>
+				<h4>request is coming from an unknown source</h4>
+		<% } %>
+	</body>
+</html>

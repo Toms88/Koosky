@@ -1,0 +1,34 @@
+<link rel="stylesheet" type="text/css" href="/css/login.css" media="screen">
+<div id="vide" class="col-xs-3 col-sm-4 col-lg-4">
+</div>
+<% if (!user) { %>
+	<div id="logform" class="col-xs-6 col-sm-5 col-lg-5">
+		<h1 class="col-xs-12 col-xs-pull-1"> Connexion</h1>
+		<% if (error == true) { %>
+			<div id="wrong" class="alert alert-error alert-block alert-danger col-xs-12 col-sm-12 col-lg-12">
+				<p><strong>Erreur ! </strong> il semble que vous vous soyez trompé dans votre mot de passe.</p>
+			</div>
+		<% } %>
+		<form id="form" action="/login" method="post" class="col-xs-12 col-sm-12 col-lg-12">
+			<input id="user" type="text" name="username" value="" placeholder="Username" class="col-xs-12 col-sm-12 col-lg-12">
+			<div id="short" class="alert alert-error alert-block alert-danger col-xs-12 col-sm-12 col-lg-12">
+				<p><strong>Warning !</strong> The Username your entered is too short.</p>
+			</div>
+			<div id="nactive" class="alert alert-error alert-block alert-danger col-xs-12 col-sm-12 col-lg-12">
+				<p><strong>Error !</strong>  Your account is not activated, check your inbox.</p>
+			</div>			
+			<div id="nexist" class="alert alert-error alert-block alert-danger col-xs-12 col-sm-12 col-lg-12">
+				<p><strong>Error !</strong>  Your account doesn't exist.</p>
+			</div>
+			<br />
+			<input id="pass" type="password" name="password" value="" placeholder="Password" class="col-xs-12 col-sm-12 col-lg-12">
+			<br />
+			<input id="button" class="col-lg-push-5 col-lg-2 btn btn-success btn-md" type="button" value="Log In">
+		</form>
+		<!--<input class="btn btn-danger center btn-md col-lg-10" type="button" value="Homepage" onclick="document.location.href='/';">-->
+		<!--<script src="/js/min/login.min.js"></script>-->
+		<script src="/js/login.js"></script>
+	</div>
+<% } else { %>
+	<h1>Tu es déjà connecté petit malin !</h1>
+<% } %>

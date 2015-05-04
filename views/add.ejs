@@ -1,0 +1,31 @@
+<div id="add" class="col-xs-12 col-sm-12 col-lg-12">
+	<h1><%= title %></h1>
+	<form id="school" class="col-xs-12 col-sm-12 col-lg-12" action="/addschool" method="POST">
+		<input id="name" class="col-xs-12 col-sm-12 col-lg-12" type="text" placeholder="name">
+		<input id="address" class="col-xs-12 col-sm-12 col-lg-12" type="text" placeholder="address">
+		<input id="phone" class="col-xs-12 col-sm-12 col-lg-12" type="text" placeholder="phone">
+		<input id="but" class="btn btn-primary" type="button" value="ajouter">
+		<!--<input id="icon" class="col-xs-12 col-sm-12 col-lg-12" type="file">-->
+	</form>	
+	<script>
+		$(document).ready(function(){
+			var socket = io.connect('127.0.0.1:8080');
+			var $name = $('#name');
+			var $address = $('#address');
+			var $phone = $('#phone');
+			var $but = $('#but');
+			$but.click(function(){
+				var name = $name.val();
+				var address = $address.val();
+				var phone = $phone.val();
+				socket.emit('add', name, address, phone);
+			});
+			socket.on('added', function(added){
+				if (added == true)
+					alert('votre école à été ajoutée !');
+				else
+					alert('ça n\'a pas marché');
+			});
+		});
+	</script>
+</div>

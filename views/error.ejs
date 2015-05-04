@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' content="width=device-width, initial-scale=1.0" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.css" media="screen">
+	</head>
+	<% if (scherror) {%>
+		<% if (scherror == true) { %>
+			<div id="scherror" class="alert alert-error alert-block alert-danger col-xs-12 col-sm-12 col-lg-12">
+				<p><strong>Error ! </strong> Vous devez être connecté pour effectuer une recherche. Retournez à l'acceuil en cliquant <a href="/">ici</a>.</p>
+			</div>
+		<% } %>
+	<% } %>
+	<script src="/js/jquery-2.1.3.min.js"></script>
+	<script src="/js/bootstrap/bootstrap.js" ></script>
+</html>

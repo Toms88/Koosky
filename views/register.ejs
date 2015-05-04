@@ -1,0 +1,97 @@
+<div id="reg" class="col-xs-12 col-sm-8 col-lg-8 col-sm-push-4 col-lg-push-2">
+<% if (!user) { %>	
+	<h1>Inscription</h1>
+	<form id="regform" class="col-xs-push-2 col-xs-12 col-sm-8 col-lg-8" action="/register" method="post">
+		<div id="usrdiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-4 col-sm-4 col-lg-4">Pseudo : </span><input id="user" class="col-xs-5 col-sm-5 col-lg-5" type="text" name="username" value="" placeholder="Username">
+			<div id="ulen" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Attention !</strong> Votre pseudo doit contenir au moins 4 caractères.</p>
+			</div>
+			<div id="veruser" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Erreur !</strong> Ce pseudo est déjà utilisé.</p>
+			</div>
+		</div>
+		<div id="stdiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-4 col-sm-4 col-lg-4">Prénom : </span><input id="first" class="col-xs-5 col-sm-5 col-lg-5" type="text" name="firstname" value="" placeholder="First name">
+			<div id="flen" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Attention !</strong> Votre prénom doit contenir au moins 2 caractères.</p>
+			</div>
+		</div>
+		<div id="lastdiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-3 col-sm-3 col-lg-3">Nom : </span><input id="last" class="col-xs-6 col-sm-6 col-lg-6" type="text" name="lastname" value="" placeholder="Last name">
+			<div id="llen" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Attention !</strong> Votre nom de famille doit contenir au moins 2 caractères.</p>
+			</div>
+		</div>
+		<div id="cellphone" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-3 col-sm-3 col-lg-3">Tél :</span><input id="tel" class="col-xs-6 col-sm-6 col-lg-6" type="tel" name="cell" value="" placeholder="Phone number">
+			<div id="tlen" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Attention !</strong> Un numéro de téléphone contient 10 chiffres.</p>
+			</div>
+			<div id="vlen" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Erreur !</strong> Veuillez entrer un numéro de téléphone valide.</p>
+			</div>
+		</div>
+		<div id="addiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-4 col-sm-4 col-lg-4">Adresse : </span><input id="address" class="col-xs-5 col-sm-5 col-lg-5" type="text" name="addr" value="" placeholder="Address">
+			<div id="adlen" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Erreur !</strong> Veuillez entrer une adresse valide.</p>
+			</div>
+		</div>		
+		<div id="posdiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-3 col-sm-3 col-lg-3">Code postal : </span><input id="postal" class="col-xs-6 col-sm-6 col-lg-6" type="text" name="postal" value="" placeholder="Postal Code">
+		</div>
+		<div id="citydiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-3 col-sm-3 col-lg-3">Ville : </span><input id="city" class="col-xs-6 col-sm-6 col-lg-6" type="search" name="city" value="" placeholder="City">
+			<div id="cityverif" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Erreur !</strong> Veuillez entrer un nom de ville/commune valide.</p>
+			</div>
+		</div>
+		<div id="scdiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-3 col-sm-3 col-lg-3">Votre école : </span><input id="school" class="col-xs-6 col-sm-6 col-lg-6" type="search" name="school" value="" placeholder="School">
+		</div>
+		<div id="bodiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-4 col-sm-4 col-lg-4">Date de naissance :</span><input id="born" name="birth" class="col-xs-5 col-sm-5 col-lg-5" type="date" name="born" value="">
+		</div>
+		<div id="verbirth" class="col-xs-12 col-sm-12 col-lg-12 alert alert-error alert-block alert-danger" >
+			<p><strong>Erreur !</strong>veuillez entrer une date de naissance valide.</p>
+		</div>
+		<div id="pwdiv" class="col-xs-12 col-sm-12 col-lg-12"> 
+			<span class="col-xs-3 col-sm-3 col-lg-3">Mot de passe : </span><input id="pass1" type="password" class="col-xs-6 col-sm-6 col-lg-6" name="password" value="" placeholder="Password">
+		</div>
+		<div id="verpass" class="alert alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+			<p><strong>Erreur !</strong> vos mots de passe sont différents.</p>
+		</div>
+		<div id="pwdiv2" class="col-xs-12 col-sm-12 col-lg-12"> 
+			<span class="col-xs-5 col-sm-5 col-lg-5">vérification du mot de passe : </span><input id="pass2" type="password" class="col-xs-4 col-sm-4 col-lg-4" name="password2" value="" placeholder="Password">
+		</div>
+		<div id="emdiv" class="col-xs-12 col-sm-12 col-lg-12">
+			<span class="col-xs-3 col-sm-3 col-lg-3">email : </span><input id="email" class="col-xs-6 col-sm-6 col-lg-6" type="email" name="email" value="" placeholder="email">
+			<div id="everif" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Erreur !</strong> Votre adresse mail n'est pas valide.</p>
+			</div>
+			<div id="veremail" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Erreur !</strong> Cet email est déjà associé à un compte.</p>
+			</div>
+		</div>
+		<div id="typediv" class="col-xs-12 col-sm-12 col-lg-12">
+			<select id="type" class="col-xs-9 col-sm-9 col-lg-9" name="acctype" size="1">
+				<option value=""> Choisir un type de compte... </option>
+				<option value="visiteur">visiteur</option>
+				<option value="étudiant">étudiant</option>
+			</select>
+			<div id="averif" class="alert alert-error alert-block alert-danger col-xs-8 col-sm-8 col-lg-8">
+				<p><strong>Erreur !</strong> Vous devez sélectionner un type de compte.</p>
+			</div>
+		</div>
+		<input id="send" class="col-sm-2 col-sm-push-2 col-lg-2 col-lg-push-4 btn btn-success btn-md" type="button" value="Register !">
+	</form>
+	<span id="message"></span>
+	<!--<script src="/js/min/register.min.js"></script>-->
+	<script src="/js/CryptoJS/rollups/sha1.js"></script>
+	<script src="/js/register.js"></script>
+<% } else { %>
+	<h1> Error !</h1>
+	<h5>On dirait que vous êtes déjà connecté ! </h5>
+<% } %>
+</div>
